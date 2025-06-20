@@ -1,0 +1,90 @@
+import time
+import os
+import sys
+
+# Kleuren voor terminal (werkt op de meeste terminals)
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+CYAN = "\033[96m"
+RESET = "\033[0m"
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def loading(text, total=20, speed=0.1):
+    print(f"{YELLOW}{text}{RESET}")
+    for i in range(total + 1):
+        percent = int(i / total * 100)
+        bar = '#' * i + '-' * (total - i)
+        print(f"\r[{bar}] {percent}%", end='', flush=True)
+        time.sleep(speed)
+    print("\n")
+
+def fake_verification():
+    steps = [
+        "Verbinding maken met server...",
+        "Verificatie token ophalen...",
+        "Gebruikersgegevens controleren...",
+        "Betalingsgateway verbinden...",
+        "Abonnement activeren...",
+        "Controle voltooid!"
+    ]
+    for step in steps:
+        print(f"{CYAN}{step}{RESET}")
+        time.sleep(1)
+
+clear()
+print(f"{GREEN}🎁 Welkom bij de Ultimate Generator 🎁{RESET}")
+print("Wat wil je genereren?")
+print("1. Robux")
+print("2. V-Bucks")
+print("3. Snapchat+")
+print("4. Discord Nitro")
+keuze = input("Kies een optie (1-4): ")
+
+clear()
+
+if keuze == "1":
+    print(f"{GREEN}💰 Robux Generator 💰{RESET}")
+    amount = input("Hoeveel Robux wil je genereren? ")
+    loading("Robux wordt gegenereerd")
+    fake_verification()
+    print(f"{RED}❌ Fout: Roblox server heeft deze aanvraag geweigerd voor {amount} Robux 😢")
+    print(f"{RED}💡 Tip: Probeer het met minder Robux, of koop ze gewoon eerlijk!{RESET}")
+
+elif keuze == "2":
+    print(f"{GREEN}🪙 V-Bucks Generator 🪙{RESET}")
+    amount = input("Hoeveel V-Bucks wil je genereren? ")
+    loading("V-Bucks wordt gegenereerd")
+    fake_verification()
+    print(f"{RED}❌ Epic Games denkt dat je probeert te cheaten met {amount} V-Bucks 😂")
+    print(f"{YELLOW}⚠️ Waarschuwing: Account tijdelijk geblokkeerd wegens verdachte activiteiten!{RESET}")
+
+elif keuze == "3":
+    print(f"{GREEN}📱 Snapchat+ Generator 📱{RESET}")
+    print("1. 3 maanden")
+    print("2. 6 maanden")
+    print("3. 12 maanden")
+    sub = input("Kies je abonnement (1-3): ")
+    maanden = {"1": "3", "2": "6", "3": "12"}.get(sub, "onbekend")
+    loading(f"Snapchat+ voor {maanden} maanden activeren")
+    fake_verification()
+    print(f"{RED}❌ Je telefoonnummer is niet verbonden. Kan geen {maanden} maanden activeren.")
+    print(f"{YELLOW}ℹ️ Probeer het later opnieuw of neem contact op met Snapchat support.{RESET}")
+
+elif keuze == "4":
+    print(f"{GREEN}🎮 Discord Nitro Generator 🎮{RESET}")
+    print("1. 1 maand")
+    print("2. 12 maanden")
+    nitro = input("Kies je Nitro duur (1-2): ")
+    duur = {"1": "1 maand", "2": "12 maanden"}.get(nitro, "onbekend")
+    loading(f"Discord Nitro {duur} aan het activeren")
+    fake_verification()
+    print(f"{RED}❌ Verificatie mislukt. Je account moet eerst gehackt worden... Oh wacht, grapje 😅")
+    print(f"{YELLOW}💡 Gebruik Discord Nitro op de legale manier!{RESET}")
+
+else:
+    print(f"{RED}⚠️ Ongeldige keuze!{RESET}")
+
+print(f"\n{CYAN}Bedankt voor het gebruiken van de nep-generator 😎{RESET}")
