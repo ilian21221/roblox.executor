@@ -1,0 +1,59 @@
+import time
+import os
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def loading(text, seconds=3):
+    print(text, end='')
+    for _ in range(seconds):
+        time.sleep(0.5)
+        print('.', end='', flush=True)
+    print('\n')
+
+clear()
+print("🎁 Welkom bij de Ultimate Generator 🎁")
+print("Wat wil je genereren?")
+print("1. Robux")
+print("2. V-Bucks")
+print("3. Snapchat+")
+print("4. Discord Nitro")
+keuze = input("Kies een optie (1-4): ")
+
+clear()
+
+if keuze == "1":
+    print("💰 Robux Generator 💰")
+    amount = input("Hoeveel Robux wil je genereren? ")
+    loading("Robux wordt gegenereerd")
+    print(f"❌ Fout: Roblox server heeft deze aanvraag geweigerd voor {amount} Robux 😢")
+
+elif keuze == "2":
+    print("🪙 V-Bucks Generator 🪙")
+    amount = input("Hoeveel V-Bucks wil je genereren? ")
+    loading("V-Bucks wordt gegenereerd")
+    print(f"❌ Epic Games denkt dat je probeert te cheaten met {amount} V-Bucks 😂")
+
+elif keuze == "3":
+    print("📱 Snapchat+ Generator 📱")
+    print("1. 3 maanden")
+    print("2. 6 maanden")
+    print("3. 12 maanden")
+    sub = input("Kies je abonnement (1-3): ")
+    maanden = {"1": "3", "2": "6", "3": "12"}.get(sub, "onbekend")
+    loading(f"Snapchat+ voor {maanden} maanden activeren")
+    print(f"❌ Je telefoonnummer is niet verbonden. Kan geen {maanden} maanden activeren.")
+
+elif keuze == "4":
+    print("🎮 Discord Nitro Generator 🎮")
+    print("1. 1 maand")
+    print("2. 12 maanden")
+    nitro = input("Kies je Nitro duur (1-2): ")
+    duur = {"1": "1 maand", "2": "12 maanden"}.get(nitro, "onbekend")
+    loading(f"Discord Nitro {duur} aan het activeren")
+    print(f"❌ Verificatie mislukt. Je account moet eerst gehackt worden... Oh wacht, grapje 😅")
+
+else:
+    print("⚠️ Ongeldige keuze!")
+
+print("\nBedankt voor het gebruiken van de nep-generator 😎")
